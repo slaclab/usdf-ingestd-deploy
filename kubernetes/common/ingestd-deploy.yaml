@@ -1,0 +1,82 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingestd
+  labels:
+    app: ingestd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingestd
+  template:
+    metadata:
+      labels:
+        app: ingestd
+    spec:
+      containers:
+      - name: ingestd
+        image: "ghcr.io/lsst-dm/ctrl_ingestd:prod"
+        imagePullPolicy: Always
+        env:
+        - name: PGUSER
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: postgres-user
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: postgres-password
+        - name: CTRL_INGESTD_CONFIG
+          value: /home/lsst/ctrl_ingestd/etc/ingestd.yml
+        resources:
+          limits:
+            cpu: "1"
+            memory: "500Mi"
+          requests:
+            cpu: "250m"
+            memory: "100Mi"
+        volumeMounts:
+        - mountPath: /home/lsst/ctrl_ingestd/etc
+          name: config
+        - mountPath: /sdf/data/rubin
+          name: sdf-data-rubin
+        - mountPath: /sdf/group/rubin
+          name: sdf-group-rubin
+      volumes:
+      - name: sdf-data-rubin
+        persistentVolumeClaim:
+          claimName: sdf-data-rubin
+      - name: sdf-group-rubin
+        persistentVolumeClaim:
+          claimName: sdf-group-rubin
+      - name: config
+        configMap:
+          name: ingestd-config
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sdf-data-rubin
+spec:
+  storageClassName: sdf-data-rubin
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sdf-group-rubin
+spec:
+  storageClassName: sdf-group-rubin
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
