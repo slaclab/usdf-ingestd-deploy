@@ -6,5 +6,5 @@ butler:
   repo: /sdf/data/rubin/rses/test/butlerdisk/rucio/repo/hsc_pdr2_multisite
 rses:
   SLAC_BUTLER_DEV_DISK:
-    rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/test/butlerdisk/rucio/repo/hsc_pdr2_multisite
+    rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/test/butlerdisk/rucio/repo/hsc_pdr2_multisite/
     fs_prefix: ""
