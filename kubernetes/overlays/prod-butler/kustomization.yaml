@@ -1,0 +1,32 @@
+images:
+- name: ghcr.io/lsst-dm/ctrl_ingestd
+  newTag: "1.2_test"
+
+namespace: prod-butler
+
+patches:
+- patch: |-
+    - op: replace
+      path: /metadata/name
+      value: prod-butler
+  target:
+    kind: Namespace
+  options:
+    allowNameChange: true
+
+replicas:
+- name: ingestd
+  count: 1
+
+resources:
+- ../../common
+
+configMapGenerator:
+- name: ingestd-config
+  files:
+  - ingestd.yml
+secretGenerator:
+- name: postgres
+  files:
+  - postgres-user=etc/.secrets/user
+  - postgres-password=etc/.secrets/password
