@@ -15,6 +15,9 @@ spec:
       labels:
         app: ingestd
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 4085
       containers:
       - name: ingestd
         image: "ghcr.io/lsst-dm/ctrl_ingestd:prod"
