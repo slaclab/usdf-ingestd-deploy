@@ -1,6 +1,6 @@
 images:
 - name: ghcr.io/lsst-dm/ctrl_ingestd
-  newTag: "1.2_test"
+  newTag: "1.4"
 
 namespace: prod-hsc-pdr2-multisite
 
