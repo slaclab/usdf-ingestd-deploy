@@ -1,5 +1,5 @@
 brokers: 134.79.23.204:9094
-group_id: "dev_ingestd"
+group_id: "dev-hsc-pdr2-multisite"
 num_messages: 50
 butler:
   instrument: lsst.obs.subaru.HyperSuprimeCam
