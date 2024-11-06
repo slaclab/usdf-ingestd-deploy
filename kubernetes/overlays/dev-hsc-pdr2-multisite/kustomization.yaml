@@ -2,17 +2,7 @@ images:
 - name: ghcr.io/lsst-dm/ctrl_ingestd
   newTag: "1.2_test"
 
-namespace: dev-butler
-
-patches:
-- patch: |-
-    - op: replace
-      path: /metadata/name
-      value: dev-butler
-  target:
-    kind: Namespace
-  options:
-    allowNameChange: true
+namespace: dev-hsc-pdr2-multisite
 
 replicas:
 - name: ingestd
@@ -20,6 +10,7 @@ replicas:
 
 resources:
 - ../../common
+- ns.yaml
 
 configMapGenerator:
 - name: ingestd-config
