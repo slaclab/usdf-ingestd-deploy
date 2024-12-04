@@ -1,4 +1,4 @@
-brokers: 134.79.23.221:9094
+brokers: 134.79.23.189:9094
 group_id: "prod-dc2"
 num_messages: 50
 butler:
