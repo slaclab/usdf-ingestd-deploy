@@ -2,9 +2,8 @@ brokers: 134.79.23.189:9094
 group_id: "prod-dc2"
 num_messages: 50
 butler:
-  instrument: lsst.obs.lsst.LsstCamImSim
   repo: /sdf/data/rubin/repo/dc2
-rses:
-  SLAC_BUTLER_DISK:
+topics:
+  SLAC_BUTLER_DISK-dc2:
     rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/lsst/butlerdisk/rucio/repo/dc2/
     fs_prefix: ""
