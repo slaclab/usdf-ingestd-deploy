@@ -1,10 +1,16 @@
-brokers: 134.79.23.204:9094
+brokers: 
+  - 134.79.23.204:9094
+
 group_id: "dev-hsc-pdr2-multisite"
+
 num_messages: 50
-butler:
-  instrument: lsst.obs.subaru.HyperSuprimeCam
-  repo: /sdf/data/rubin/rses/test/butlerdisk/rucio/repo/hsc_pdr2_multisite
-rses:
-  SLAC_BUTLER_DEV_DISK:
+
+#
+# instrument: lsst.obs.subaru.HyperSuprimeCam
+#
+#
+butler_repo: /sdf/data/rubin/rses/test/butlerdisk/rucio/repo/hsc_pdr2_multisite
+
+topics:
+  SLAC_BUTLER_DEV_DISK-hsc_pdr2_multisite:
     rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/test/butlerdisk/rucio/repo/hsc_pdr2_multisite/
-    fs_prefix: ""

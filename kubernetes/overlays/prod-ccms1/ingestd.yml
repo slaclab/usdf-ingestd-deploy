@@ -1,9 +1,8 @@
-brokers: 134.79.23.189:9094
+brokers: 
+  - 134.79.23.189:9094
 group_id: "prod-ccms1"
 num_messages: 50
-butler:
-  repo: /sdf/data/rubin/repo/ccms1
+butler_repo: /sdf/data/rubin/repo/ccms1
 topics:
   SLAC_BUTLER_DISK-ccms1:
     rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/lsst/butlerdisk/rucio/repo/ccms1/
-    fs_prefix: ""

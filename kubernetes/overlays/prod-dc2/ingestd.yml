@@ -1,9 +1,8 @@
-brokers: 134.79.23.189:9094
+brokers: 
+  - 134.79.23.189:9094
 group_id: "prod-dc2"
 num_messages: 50
-butler:
-  repo: /sdf/data/rubin/repo/dc2
+butler_repo: /sdf/data/rubin/repo/dc2
 topics:
   SLAC_BUTLER_DISK-dc2:
     rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/lsst/butlerdisk/rucio/repo/dc2/
-    fs_prefix: ""
