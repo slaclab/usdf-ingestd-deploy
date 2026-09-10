@@ -5,4 +5,4 @@ num_messages: 200
 butler_repo: /sdf/data/rubin/repo/dp2_prep
 topics:
   SLAC_BUTLER_DISK-dp2_prep:
-    rucio_prefix: davs://sdfdtn005.slac.stanford.edu:1094/lsst/butlerdisk/rucio/repo/dp2_prep/
+    rucio_prefix: davs://usdf-xrootd.slac.stanford.edu:1094/lsst/butlerdisk/rucio/repo/dp2_prep/
